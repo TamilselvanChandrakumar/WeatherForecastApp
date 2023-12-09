@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import WeatherInformationUI from "./WeatherInformationUI";
+import "./Weather.css";
 const Weather = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   const handleInputChange = (e) => {
     setCity(e.target.value);
@@ -13,6 +15,7 @@ const Weather = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchData();
+    setCity("");
     console.log(weatherData);
   };
 
@@ -22,12 +25,10 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=fd682f76b97bea3933626265f56d492c`
       );
       setWeatherData(response.data);
-    } catch {
-      console.log("somthing went wrong");
-    }
+    } catch {}
   };
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -37,17 +38,9 @@ const Weather = () => {
         ></input>
         <button type="submit">Click to see weather</button>
       </form>
-      {weatherData ? (
-        <>
-          <p>{weatherData.name}</p>
-          <p>temperature {weatherData.main.temp}</p>
-        </>
-      ) : (
-        <>
-          <p>data is loading...</p>
-        </>
-      )}
-    </>
+      <br></br>
+      <WeatherInformationUI weatherData={weatherData}></WeatherInformationUI>
+    </div>
   );
 };
 
