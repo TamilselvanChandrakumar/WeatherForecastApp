@@ -8,8 +8,12 @@ const WeatherInformationUI = ({ weatherData }) => {
         <table>
           <tbody>
             <tr>
-              <td rowSpan={2} className="leftSideBar">
-                {weatherData.name}
+              <td rowSpan={2} className="weather-details">
+                <h1>{weatherData.name}</h1>
+                <h2>
+                  {weatherData.main.feels_like} <sup>deg c</sup>
+                </h2>
+                <p>{weatherData.weather[0].description}</p>
               </td>
               <td>
                 <h3>Feelslike</h3>

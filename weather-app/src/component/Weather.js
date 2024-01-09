@@ -25,7 +25,9 @@ const Weather = () => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=fd682f76b97bea3933626265f56d492c`
       );
       setWeatherData(response.data);
-    } catch {}
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div>

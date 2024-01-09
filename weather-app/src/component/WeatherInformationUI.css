@@ -1,8 +1,20 @@
 table {
   margin: auto;
+  width: 1000px;
+  height: 350px;
 }
 td {
   border: 1px solid black;
-  width: 150px;
-  height: 150px;
+  border-radius: 10px;
+  text-align: center;
+}
+.weather-details > h1 {
+  font-size: 4rem;
+}
+.weather-details > h2 {
+  font-size: 5rem;
+}
+
+.weather-details > P {
+  font-size: 2rem;
 }
