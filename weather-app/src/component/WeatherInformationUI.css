@@ -2,9 +2,10 @@ table {
   margin: auto;
   width: 1000px;
   height: 350px;
+  box-shadow: 10px 10px 10px;
 }
 td {
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 10px;
   text-align: center;
 }
